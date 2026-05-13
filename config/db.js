@@ -11,7 +11,8 @@ const db = mysql.createConnection({
   host: process.env.DB_HOST, // e.g. localhost
   user: process.env.DB_USER, // e.g. root
   password: process.env.DB_PASS, // your password
-  database: process.env.DB_NAME, // school_db
+  database: process.env.DB_NAME, // railway; (locally school_db)
+  port: process.env.DB_PORT
 });
 
 // Connect to DB
