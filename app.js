@@ -24,6 +24,19 @@ app.get("/", (req, res) => {
 
 module.exports = app;
 
+// catching syntax error gracefully
+// Catch JSON parsing errors gracefully
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return res.status(400).json({ 
+      success: false, 
+      message: "The request body is not valid JSON. Please check your syntax." 
+    });
+  }
+  next();
+});
+
+
 
 // testing GET
 // http://localhost:5000/api/listSchools?latitude=28.6&longitude=77.2

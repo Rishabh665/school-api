@@ -33,10 +33,10 @@ const addSchool = (req, res) => {
 
 // ✅ List Schools API (Sorted by distance)
 const listSchools = (req, res) => {
-  const { latitude, longitude } = req.query;
-
+  // const { latitude, longitude } = req.query;
+  const {userLatitude,userLongitude} = req.query;
   // Validate input
-  if (!latitude || !longitude) {
+  if (!userLatitude || !userLongitude) {
     return res.status(400).json({
       message: "Latitude and Longitude required",
     });
@@ -50,8 +50,8 @@ const listSchools = (req, res) => {
     // Add distance to each school
     const sortedSchools = schools.map((school) => {
       const distance = calculateDistance(
-        latitude,
-        longitude,
+        userLatitude,
+        userLongitude,
         school.latitude,
         school.longitude,
       );

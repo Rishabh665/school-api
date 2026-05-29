@@ -17,3 +17,6 @@ exports.getAllSchools = (callback) => {
   const query = `SELECT * FROM schools`;
   db.query(query, callback);
 };
+
+
+// nowgong: Latitude: \(25.0574^{\circ }\) NLongitude: \(79.4381^{\circ }\) E
