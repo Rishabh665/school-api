@@ -38,7 +38,7 @@ const listSchools = (req, res) => {
   // Validate input
   if (!userLatitude || !userLongitude) {
     return res.status(400).json({
-      message: "Latitude and Longitude required",
+      message: "User's Latitude and Longitude required",
     });
   }
 
